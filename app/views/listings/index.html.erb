@@ -7,6 +7,7 @@
     <th>availability</th>
     <th>city</th>
     <th>address</th>
+    <th>booker_id</th>
   </thead>
   <tbody>
     <% @listings.each do |listing| %>
@@ -18,6 +19,7 @@
         <td><%= listing.availability %></td>
         <td><%= listing.city %></td>
         <td><%= listing.address %></td>
+        <td><%= listing.booker_id %></td>
       </tr>
     <% end %>
   </tbody>
