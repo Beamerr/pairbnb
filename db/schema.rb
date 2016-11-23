@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20167890675432) do
     t.integer  "booker_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "users_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -55,6 +56,8 @@ ActiveRecord::Schema.define(version: 20167890675432) do
     t.integer  "house_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "users_id"
+    t.integer  "listings_id"
   end
 
   create_table "users", force: :cascade do |t|

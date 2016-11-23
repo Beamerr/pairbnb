@@ -1,25 +1,23 @@
 <table class="table table-striped table-bordered">
   <thead>
     <th>description</th>
-    <th>max_occupants<th>
+    <th>Max occupants</th>
     <th>rooms</th>
     <th>rent</th>
     <th>availability</th>
     <th>city</th>
     <th>address</th>
-    <th>booker_id</th>
   </thead>
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
         <td><%= listing.description %></td>
-        <td><%= listing.max_occupants %></td>
         <td><%= listing.rooms %></td>
+        <td><%= listing.max_occupants %></td>
         <td><%= listing.rent %></td>
         <td><%= listing.availability %></td>
         <td><%= listing.city %></td>
         <td><%= listing.address %></td>
-        <td><%= listing.booker_id %></td>
       </tr>
     <% end %>
   </tbody>
