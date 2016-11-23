@@ -18,6 +18,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
+gem 'clearance'
+gem 'figaro'
+gem 'ffaker'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

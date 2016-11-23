@@ -1,9 +1,9 @@
-class Authorization < ApplicationRecord
+class Authentication < ApplicationRecord
 
 belongs_to :user
 
   def self.create_with_omniauth(auth_hash)
-    create! do |auth|
+    new do |auth|
       auth.provider = auth_hash["provider"]
       auth.uid = auth_hash["uid"]
       auth.token = auth_hash["credentials"]["token"]

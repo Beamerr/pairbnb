@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20167890675432) do
     t.string   "remember_token",     limit: 128
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "root_url"
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end

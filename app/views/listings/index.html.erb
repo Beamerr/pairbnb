@@ -1,0 +1,24 @@
+<table class="table table-striped table-bordered">
+  <thead>
+    <th>description</th>
+    <th>rent</th>
+    <th>status</th>
+    <th>city</th>
+    <th>address</th>
+  </thead>
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.description %></td>
+        <td><%= listing.rent %></td>
+        <td><%= listing.status %></td>
+        <td><%= listing.city %></td>
+        <td><%= listing.address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @listings %>
+
+

@@ -17,4 +17,17 @@ class SessionsController < Clearance::SessionsController
     sign_in(user)
     redirect_to @next, :notice => @notice
   end
+
+  def create 
+    @user = authenticate(params)
+
+    sign_in(@user) do |status|
+      if status.success?
+        redirect_back_or url_after_create
+      else
+        flash.now.notice = status.failure_message
+        render template: "sessions/new", status: :unauthorized
+      end
+    end
+  end
 end
