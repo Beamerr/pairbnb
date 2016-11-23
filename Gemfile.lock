@@ -191,7 +191,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  bootstrap-sass
+  bootstrap-sass (~> 3.3.6)
   byebug
   clearance
   coffee-rails (~> 4.2)

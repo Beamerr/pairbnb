@@ -9,7 +9,7 @@ require 'ffaker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 100.times do
-	 User.create(
+	 User.create!(
 	 	email: FFaker::Internet.email,
 	 	password: FFaker::Color.name,
 	 	location: FFaker::Address.city,
@@ -23,8 +23,10 @@ end
      Listing.create!(
      	user_id: rand(1..100),
         description: FFaker::CheesyLingo.sentence,
+        max_occupants: rand(1..10),
+        rooms: rand(1..10),
         rent: rand(30..500),
-        status: true,
+        availability: true,
         city: FFaker::Address.city,
         address: FFaker::Address.street_address,
         booker_id: rand(1..100)

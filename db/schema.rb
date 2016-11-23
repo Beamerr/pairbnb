@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 20167890675432) do
   create_table "listings", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "description"
+    t.integer  "max_occupants"
+    t.integer  "rooms"
     t.integer  "rent"
-    t.string   "status"
+    t.string   "availability"
     t.string   "city"
     t.string   "address"
     t.integer  "booker_id"
@@ -61,12 +63,12 @@ ActiveRecord::Schema.define(version: 20167890675432) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "root_url"
     t.string   "encrypted_password", limit: 128
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "root_url"
     t.index ["email"], name: "index_users_on_email", using: :btree
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
