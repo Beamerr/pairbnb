@@ -23,7 +23,9 @@ gem 'figaro'
 gem 'ffaker'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
-gem "mini_magick'
+gem 'mini_magick'
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'fog'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

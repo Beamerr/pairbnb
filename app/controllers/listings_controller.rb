@@ -1,7 +1,10 @@
 class ListingsController < ApplicationController
   def index
     @listings = Listing.paginate(:page => params[:page], :per_page => 30)
-    
+  end
+
+  def listing_params
+    params.require(:listing).permit(:name, :price, :location, {avatars:[]})
   end
 
   def new
