@@ -1,20 +1,89 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Facebook Auth Example</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+
 </head>
+
 <body>
+
 <div>
   <% if current_user %>
     Signed in as <strong><%= current_user.email %></strong>!
-    <%= link_to "Sign out", sign_out_path, id: "sign_out" %>
+    <%= link_to "Sign out", sign_out_path, method: :delete %>
   <% else %>
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
+</div> 
+
+<div>
+  <% if signed_in? %>
+    <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapsable">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/home" class="navbar-brand">PairBNB</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapsable">
+          <ul class="nav navbar-nav foo" id="menu">
+            <p class="navbar-text">Pick an option:</p>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/listings">Listings</a></li>
+            <li><a href="/landlord">Landlord</a></li> 
+            <li>
+              <a href="/contact">
+                <span class='glyphicon glyphicon-hand-right'></span>
+                Contact Us!
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stuff <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">Great stuff!</li>
+                <li><a href="/one">One</a></li>
+                <li><a href="/two">Two</a></li>
+                <li><a href="/three">Three</a></li>
+                <li class="divider"></li>
+                <li><a href="/admin">Admin Dashboard</a></li>
+                <li><a href="/admin/users">Users</a></li>
+              </ul>
+            </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" align="right">
+              <li><%= link_to "Sign out", sign_out_path, method: :delete %></li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+  <% end %>
 </div>
+
+<div style="margin-top: 43px" align="center">
+  <% if signed_in? %>
+    <% case current_user.role %>
+    <% when 'user' %>
+      </h3>Welcome</h3>
+    <% when 'vip' %>
+      <h3>Welcome, Landlord</h3>
+    <% when 'admin' %>
+      <h3>Welcome, Administrator</h3>
+    <% end %>
+  <% else %>
+    <h3>Welcome</h3>
+  <% end %>
+</div>
+
+
 <%= yield %>
  
 </body>

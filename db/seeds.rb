@@ -8,29 +8,52 @@ require 'ffaker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times do
-	 User.create!(
-	 	email: FFaker::Internet.email,
-	 	password: FFaker::Color.name,
-	 	location: FFaker::Address.city,
-	 	first_name: FFaker::Name.first_name,
-	 	last_name: FFaker::Name.last_name	
+# 100.times do
+# 	 User.create!(
+# 	 	email: FFaker::Internet.email,
+# 	 	password: "hello",
+# 	 	location: FFaker::Address.city,
+# 	 	first_name: FFaker::Name.first_name,
+# 	 	last_name: FFaker::Name.last_name	
 	 	
-	 )
+# 	 )
+# end
+
+# id_array = User.all.pluck(:id)
+# 100.times do
+#      Listing.create!(
+#      	user_id: id_array.sample,
+#         description: FFaker::CheesyLingo.sentence,
+#         max_occupants: rand(1..10),
+#         rooms: rand(1..10),
+#         rent: rand(30..500),
+#         availability: true,
+#         city: FFaker::Address.city,
+#         address: FFaker::Address.street_address,
+#         booker_id: rand(1..100)
+        
+#       ) 
+# end 
+
+2.times do
+  User.create(
+    email: FFaker::Internet.email,
+    password: "hello",
+    location: FFaker::Address.city,
+    first_name: FFaker::Name.first_name,
+    last_name: FFaker::Name.last_name,
+    role: 1
+    )
 end
 
-100.times do
-     Listing.create!(
-     	user_id: rand(1..100),
-        description: FFaker::CheesyLingo.sentence,
-        max_occupants: rand(1..10),
-        rooms: rand(1..10),
-        rent: rand(30..500),
-        availability: true,
-        city: FFaker::Address.city,
-        address: FFaker::Address.street_address,
-        booker_id: rand(1..100)
-        
-      ) 
-end 
+2.times do
+  User.create(
+    email: FFaker::Internet.email,
+    password: "hello",
+    location: FFaker::Address.city,
+    first_name: FFaker::Name.first_name,
+    last_name: FFaker::Name.last_name,
+    role: 2
+    )
 
+end
