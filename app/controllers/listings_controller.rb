@@ -11,9 +11,15 @@ class ListingsController < ApplicationController
   end
 
   def create
+    @house = current_user.houses.build(params[:house]) 
+     if @house.save
+        flash[:success] = "Your house is added out to rent!!"
+        redirect_to listings_path
+     end
   end
 
   def show
+    @listing = Listing.find(params[:id])
   end
 
   def edit

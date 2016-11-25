@@ -1,1 +1,3 @@
-<%= image_tag (@listing.avatars[0].large.url) %>
+<%= image_tag(@listing.avatars[0].large.url) if @listing.avatars[0] %>
+
+ 
