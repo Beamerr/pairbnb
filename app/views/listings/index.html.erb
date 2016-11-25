@@ -50,21 +50,23 @@
   </div>
 </div>
 
+ <% @listings.each do |listing| %>
 <div class="btn-group-vertical pull-left">
   <a href="#" class="btn btn-primary btn-lg"></a>
-    <%= link_to "New", new_listing_path %>
-  <a href="#" class="btn btn-primary btn-lg">Edit</a>
+    <div><%= link_to "New", new_listing_path %></div>
+  <a href="#" class="btn btn-primary btn-lg"></a>
+    <div><%= link_to "Edit", edit_listing_path(listing) %></div>
   <a href="#" class="btn btn-primary btn-lg">Delete</a>
 </div>
 
 <div class="container">
- <% @listings.each do |listing| %>
+
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-primary">
         <div class="panel-heading"><%= listing.city %></div>
         <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer"><%= listing.rent %></div>
+        <div class="panel-footer"><%= listing.rent %>
         </div>
       </div>
     </div>

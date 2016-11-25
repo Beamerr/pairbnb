@@ -9,7 +9,6 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
-    
   end
 
   def create
@@ -29,9 +28,17 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    @listing = Listing.find(params[:id])
   end
 
   def update
+    @listing = Listing.find(params[:id])
+    @listing.user_id = current_user.id
+      if @listing.update(listing_params)
+         redirect_to @listing
+      else
+         render 'edit'
+      end
   end
 
   def destroy

@@ -1,2 +1,56 @@
 <h1>Listings#edit</h1>
 <p>Find me in app/views/listings/edit.html.erb</p>
+
+<h1>Edit Listing</h1>
+ 
+<%= form_for :listing, url: listing_path(@listing), method: :patch do |f| %>
+ 
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@listing.errors.count, "error") %> prohibited
+        this listing from being saved:
+      </h2>
+      <ul>
+        <% @listing.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p> 
+  
+<%= f.label :description %>
+<div class="input-xlarge">
+<%= f.text_area :description %> 
+</div>
+<%= f.label :city %>
+<div class="input-small">
+<%= f.text_field :city %> 
+</div>
+<%= f.label :address %>
+<div class="input-xlarge">
+<%= f.text_area :address %> 
+</div>
+<%= f.label :max_occupants %>
+<div class="input-small">
+<%= f.text_field :max_occupants %> 
+</div>
+<%= f.label :rooms %>
+<div class="input-small">
+<%= f.text_field :rooms %> 
+</div>
+<%= f.label :rent %>
+<div class="input-small">
+<%= f.text_field :rent %> 
+</div>
+<div class="form-actions">
+<div class="btn btn-primary">
+<%= f.submit %>
+</div>
+</div>
+</p>
+ 
+<% end %>
+ 
