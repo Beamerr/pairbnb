@@ -50,7 +50,12 @@
   </div>
 </div>
 
-
+<div class="btn-group-vertical pull-left">
+  <a href="#" class="btn btn-primary btn-lg"></a>
+    <%= link_to "New", new_listing_path %>
+  <a href="#" class="btn btn-primary btn-lg">Edit</a>
+  <a href="#" class="btn btn-primary btn-lg">Delete</a>
+</div>
 
 <div class="container">
  <% @listings.each do |listing| %>
@@ -59,13 +64,7 @@
       <div class="panel panel-primary">
         <div class="panel-heading"><%= listing.city %></div>
         <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer clearfix"><%= listing.rent %> 
-          <div class="btn-group pull-right">
-          <a href="#" class="btn btn-default btn-sm">## New</a>
-          <a href="#" class="btn btn-default btn-sm">## Edit</a>
-          <a href="#" class="btn btn-default btn-sm">## Delete</a>
-
-        </div>
+        <div class="panel-footer"><%= listing.rent %></div>
         </div>
       </div>
     </div>

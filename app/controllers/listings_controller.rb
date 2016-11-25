@@ -4,17 +4,23 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:name, :price, :location, {avatars:[]})
+    params.require(:listing).permit(:description, :city, :address, :max_occupants, :rooms, :rent, {avatars:[]})
   end
 
   def new
+    @listing = Listing.new
+    
   end
 
   def create
-    @house = current_user.houses.build(params[:house]) 
-     if @house.save
+    @listing = Listing.new(listing_params) 
+    #byebug
+    @listing.user_id = current_user.id
+     if @listing.save
         flash[:success] = "Your house is added out to rent!!"
         redirect_to listings_path
+     else
+        render :new
      end
   end
 
