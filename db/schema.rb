@@ -54,11 +54,12 @@ ActiveRecord::Schema.define(version: 20167890675434) do
     t.integer  "user_id"
     t.date     "check_in"
     t.date     "check_out"
-    t.integer  "house_id"
+    t.integer  "lisitng_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "users_id"
     t.integer  "listings_id"
+    t.integer  "total_cost"
   end
 
   create_table "users", force: :cascade do |t|

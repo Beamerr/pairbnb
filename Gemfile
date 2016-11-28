@@ -26,6 +26,7 @@ gem 'will_paginate-bootstrap'
 gem 'mini_magick'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'fog'
+gem 'bootstrap-datepicker-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
