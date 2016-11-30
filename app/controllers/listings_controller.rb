@@ -1,10 +1,13 @@
 class ListingsController < ApplicationController
+  
+
+
   def index
     @listings = Listing.paginate(:page => params[:page], :per_page => 30)
-  end
-
-  def listing_params
-    params.require(:listing).permit(:description, :city, :address, :max_occupants, :rooms, :rent, {avatars:[]})
+  
+    @listings = @listings.city(params[:city]) if params[:city].present? 
+    #byebug
+    @listings = @listings.rent(params[:minrent], params[:maxrent]) if params[:minrent].present?
   end
 
   def new
@@ -43,4 +46,12 @@ class ListingsController < ApplicationController
 
   def destroy
   end
+
+ private
+
+  def listing_params
+    params.require(:listing).permit(:description, :city, :address, :max_occupants, :rooms, :rent, {avatars:[]})
+  end
+
+ 
 end

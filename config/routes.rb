@@ -8,6 +8,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :destroy] 
 
-  root to: "home#show"
+  root to: "home#index"
+
+  resources :listings do
+  	resources :reservations, only: [:create]
+  end
+
+  get '/preload' => 'reservations#preload'
+
+  #get '/' => 'searches#search'
 
 end

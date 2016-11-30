@@ -1,19 +1,27 @@
  class ReservationsController < ApplicationController 
 
   def new
-    @listing = Listing.find(params[:listing_id])
-    today = Date.today
-    reservations = listing.reservations.where("start_date >= ? || end date >= ?", today, today)
-
-    render json: reservations
+    @reservation = Reservation.new
   end
 
   def create
-    @reservation = current_user.reservation.create(reservation_params)
+    @reservation = Reservation.new(reservation_params)
+
   end
 
+  def preload
+    @listing = Listing.find(params[:id])
+    today = Date.today
+    reservations = @listing.reservations.where(check_in: today, check_out: today)
+
+    render json: reservations
+  end
   
-  def reservation_params
-    params.require(:reservation).permit(:check_in, :check_out, :rent, :total_cost, :listing_id)
-  end 
+  private
+   
+    def reservation_params
+     
+      params.require(:reservation).permit(:check_in, :check_out, :total_cost, :listing_id)
+    end 
+
 end

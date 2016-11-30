@@ -36,7 +36,7 @@ require 'ffaker'
 # end 
 
 2.times do
-  User.create(
+  User.create!(
     email: FFaker::Internet.email,
     password: "hello",
     location: FFaker::Address.city,
@@ -57,3 +57,16 @@ end
     )
 
 end
+
+1.times do
+    Reservation.create!(
+    user_id: 408,
+    check_in: "2017-01-10",
+    check_out: "2017-10-10",
+    listing_id: 50,
+    users_id: 100,
+    total_cost: 2786
+    )
+end
+
+

@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20167890675434) do
     t.integer  "user_id"
     t.date     "check_in"
     t.date     "check_out"
-    t.integer  "lisitng_id"
+    t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "users_id"
