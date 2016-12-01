@@ -13,11 +13,7 @@ class ListingsController < ApplicationController
     
     @listings = @listings.search_by_description(params[:description]) if params[:description].present? 
 
-    
-    
-
     path = request.path.to_s
-    byebug
     if path.include? "users"
       @user = current_user
       @listings = @user.listings.all.paginate(:page => params[:page], :per_page => 30)
