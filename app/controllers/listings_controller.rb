@@ -1,13 +1,18 @@
 class ListingsController < ApplicationController
   
-
-
   def index
     @listings = Listing.paginate(:page => params[:page], :per_page => 30)
   
     @listings = @listings.city(params[:city]) if params[:city].present? 
     #byebug
     @listings = @listings.rent(params[:minrent], params[:maxrent]) if params[:minrent].present?
+
+    @listings = @listings.rooms(params[:rooms]) if params[:rooms].present?
+
+    @listings = @listings.max_occupants(params[:max_occupants]) if params[:max_occupants].present?
+    
+    @listings = @listings.search_by_description(params[:description]) if params[:description].present?  
+    
   end
 
   def new

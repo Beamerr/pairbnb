@@ -27,6 +27,7 @@ gem 'mini_magick'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'fog'
 gem 'bootstrap-datepicker-rails'
+gem 'pg_search'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
