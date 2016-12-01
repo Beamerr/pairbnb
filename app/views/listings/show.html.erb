@@ -48,7 +48,7 @@
 <% end %>
 
 <div> <% if @listing.user_id == current_user.id %>
-<%= link_to 'Edit', edit_listing_path(listing) %>
+<%= link_to 'Edit', edit_listing_path(@listing) %>
 <% end %>
 </div>
 <div><%= link_to "Book", new_reservation_path %></div>

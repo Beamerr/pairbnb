@@ -4,15 +4,24 @@ class ListingsController < ApplicationController
     @listings = Listing.paginate(:page => params[:page], :per_page => 30)
   
     @listings = @listings.city(params[:city]) if params[:city].present? 
-    #byebug
+    
     @listings = @listings.rent(params[:minrent], params[:maxrent]) if params[:minrent].present?
 
     @listings = @listings.rooms(params[:rooms]) if params[:rooms].present?
 
     @listings = @listings.max_occupants(params[:max_occupants]) if params[:max_occupants].present?
     
-    @listings = @listings.search_by_description(params[:description]) if params[:description].present?  
+    @listings = @listings.search_by_description(params[:description]) if params[:description].present? 
+
     
+    
+
+    path = request.path.to_s
+    byebug
+    if path.include? "users"
+      @user = current_user
+      @listings = @user.listings.all.paginate(:page => params[:page], :per_page => 30)
+    end
   end
 
   def new
@@ -21,7 +30,6 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params) 
-    #byebug
     @listing.user_id = current_user.id
      if @listing.save
         flash[:success] = "Your house is added out to rent!!"

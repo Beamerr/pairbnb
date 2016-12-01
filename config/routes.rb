@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :reservations
 
   resources :users, only: [:show, :edit, :update, :destroy] 
+  
+  resources :users do
+    resources :listings, only: [:index]
+  end
 
   resources :search_by_description, only: [:index]
 

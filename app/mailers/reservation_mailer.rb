@@ -10,4 +10,8 @@ class ReservationMailer < ApplicationMailer
 
     mail to: "to@example.org"
   end
+
+  def booking_email(customer, host, reservation_id)
+  	
+  end
 end
